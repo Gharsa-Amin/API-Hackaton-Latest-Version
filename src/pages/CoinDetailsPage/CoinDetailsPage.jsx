@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import React from "react";
 import { Link, useParams } from "react-router-dom";
+import Trading from "../../components/Trading/Trading";
 import "./CoinDetailsPage.scss";
 
 export default function CoinDetailsPage() {
@@ -44,56 +45,59 @@ export default function CoinDetailsPage() {
     return (
       <>
         <div>
-          <div className="coin-list__div">
-            <p className="coin-list__price">Market Cap: {market_cap}</p>
-          </div>
-          <div className="coin-list__div">
-            <p className="coin-list__diluted-valuation">
-              Full Diluted Valuation: ${fully_diluted_valuation}
-            </p>
-          </div>
-          <div className="coin-list__div">
-            <p className="coint-list__total-volume">
-              Total Volume: ${total_volume}
-            </p>
-          </div>
-          <div className="coin-list__div">
-            <p className="coin-list__high24">24Hrs High: ${high_24h}</p>
-          </div>
-          <div className="coin-list__div">
-            <p className="coin-list__low24">24Hrs Low: ${low_24h}</p>
-          </div>
-          <div className="coin-list__div">
-            <p className="coin-list__price-change">
-              Price Change in 24Hrs: ${price_change_24h}
-            </p>
-          </div>
-          <div className="coin-list__div">
-            <p className="coin-list__percentage-change">
-              {" "}
-              Price Change in 24Hrs:
-              {price_change_percentage_24h}%
-            </p>
-          </div>
-          <div className="coin-list__div">
-            <p className="coin-list__cap-change">
-              {" "}
-              Market Cap Change:
-              {market_cap_change_percentage_24h}%
-            </p>
-          </div>
-          <div className="coin-list__div">
-            <p className="coin-list__circulating-supply">
-              Circulating Supply: {circulating_supply}
-            </p>
-          </div>
-          <div className="coin-list__div">
-            <p className="coin-list__total-supply">
-              Total Supply: {total_supply}
-            </p>
-          </div>
-          <div className="coin-list__div">
-            <p className="coin-list__max-supply">Max Supply: {max_supply}</p>
+          <div>
+            <div className="coin-list__div">
+              <p className="coin-list__price">Market Cap: {market_cap}</p>
+            </div>
+            <div className="coin-list__div">
+              <p className="coin-list__diluted-valuation">
+                Full Diluted Valuation: ${fully_diluted_valuation}
+              </p>
+            </div>
+            <div className="coin-list__div">
+              <p className="coint-list__total-volume">
+                Total Volume: ${total_volume}
+              </p>
+            </div>
+            <div className="coin-list__div">
+              <p className="coin-list__high24">24Hrs High: ${high_24h}</p>
+            </div>
+            <div className="coin-list__div">
+              <p className="coin-list__low24">24Hrs Low: ${low_24h}</p>
+            </div>
+            <div className="coin-list__div">
+              <p className="coin-list__price-change">
+                Price Change in 24Hrs: ${price_change_24h}
+              </p>
+            </div>
+            <div className="coin-list__div">
+              <p className="coin-list__percentage-change">
+                {" "}
+                Price Change in 24Hrs:
+                {price_change_percentage_24h}%
+              </p>
+            </div>
+            <div className="coin-list__div">
+              <p className="coin-list__cap-change">
+                {" "}
+                Market Cap Change:
+                {market_cap_change_percentage_24h}%
+              </p>
+            </div>
+            <div className="coin-list__div">
+              <p className="coin-list__circulating-supply">
+                Circulating Supply: {circulating_supply}
+              </p>
+            </div>
+            <div className="coin-list__div">
+              <p className="coin-list__total-supply">
+                Total Supply: {total_supply}
+              </p>
+            </div>
+            <div className="coin-list__div">
+              <p className="coin-list__max-supply">Max Supply: {max_supply}</p>
+            </div>
+            <Trading current_price={current_price} />
           </div>
         </div>
       </>

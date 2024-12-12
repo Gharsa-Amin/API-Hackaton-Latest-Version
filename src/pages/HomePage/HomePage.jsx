@@ -5,6 +5,7 @@ import { Link, useParams } from "react-router-dom";
 import Coin from "../../components/Coin/Coin";
 import Header from "../../components/Header/Header";
 import Hero from "../../components/Hero/Hero";
+import Trading from "../../components/Trading/Trading";
 import "./HomePage.scss";
 
 export default function HomePage() {
