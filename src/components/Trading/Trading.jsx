@@ -1,39 +1,49 @@
-// import { Form } from "react-router-dom";
+import { useState } from "react";
+import "./Trading.scss";
 
 export default function Trading({ current_price }) {
-	// Handle form submission
-	function formSubmit(event) {
-		event.preventDefault();
-		// Add your form submission logic here
-	}
+  const [coinAmount, setCoinAmount] = useState("");
+  const [cadValue, setCadValue] = useState("");
 
-	return (
-		<form id="form" onSubmit={formSubmit}>
-			<div className="title">
-				<h1 className="title__header">Trade Here</h1>
-			</div>
-			<label htmlFor="coinAmount" id="label-coin">
-				Coin
-				<input
-					type="text"
-					className="amount-title"
-					name="coinAmount"
-					id="coinAmount"
-				/>
-			</label>
+  const handleCoinAmount = (event) => {
+    setCoinAmount(event.target.value);
+  };
+  // Handle form submission
+  function formSubmit(event) {
+    event.preventDefault();
+    const coinConversion = coinAmount * current_price;
+    setCadValue(coinConversion.toFixed(2));
+  }
 
-			<label htmlFor="cadValue" id="label-cad">
-				CAD Value
-				<input
-					type="number"
-					min="0"
-					className="amount-title"
-					name="cadValue"
-					id="cadValue"
-				/>
-			</label>
+  return (
+    <form id="form" onSubmit={formSubmit}>
+      <div className="title">
+        <h1 className="title__header">Trade Here</h1>
+      </div>
+      <label htmlFor="coinAmount" id="label-coin">
+        Coin
+        <input
+          type="text"
+          className="amount-title"
+          name="coinAmount"
+          id="coinAmount"
+          onChange={handleCoinAmount}
+          value={coinAmount}
+        />
+      </label>
 
-			<button type="submit">Trade</button>
-		</form>
-	);
+      <label htmlFor="cadValue" id="label-cad">
+        CAD Value
+        <input
+          type="text"
+          name="cadValue"
+          id="cadValue"
+          value={cadValue}
+          readOnly
+        />
+      </label>
+
+      <button type="submit">Trade</button>
+    </form>
+  );
 }

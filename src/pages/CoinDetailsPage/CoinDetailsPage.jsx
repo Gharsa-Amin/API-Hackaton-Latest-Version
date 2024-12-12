@@ -29,6 +29,9 @@ export default function CoinDetailsPage() {
   } else {
     console.log(coinDetails);
     const {
+      name,
+      symbol,
+      image,
       market_cap,
       price_change_percentage_24h,
       fully_diluted_valuation,
@@ -39,65 +42,70 @@ export default function CoinDetailsPage() {
       market_cap_change_percentage_24h,
       circulating_supply,
       total_supply,
-      max_supply,
       current_price,
     } = coinDetails[0];
     return (
       <>
         <div>
-          <div>
-            <div className="coin-list__div">
-              <p className="coin-list__price">Market Cap: {market_cap}</p>
+          <div className="coin-list__flex">
+            <div className="coin-list__details">
+              <div className="coin-list__div">
+                <p className="coin-list__price">Market Cap: ${market_cap}</p>
+              </div>
+              <div className="coin-list__div">
+                <p className="coin-list__diluted-valuation">
+                  Full Diluted Valuation: ${fully_diluted_valuation}
+                </p>
+              </div>
+              <div className="coin-list__div">
+                <p className="coint-list__total-volume">
+                  Total Volume: {total_volume}
+                </p>
+              </div>
+              <div className="coin-list__div">
+                <p className="coin-list__high24">24Hrs High: ${high_24h}</p>
+              </div>
+              <div className="coin-list__div">
+                <p className="coin-list__low24">24Hrs Low: ${low_24h}</p>
+              </div>
+              <div className="coin-list__div">
+                <p className="coin-list__price-change">
+                  Price Change in 24Hrs: ${price_change_24h}
+                </p>
+              </div>
+              <div className="coin-list__div">
+                <p className="coin-list__percentage-change">
+                  {" "}
+                  Price Change in 24Hrs: {price_change_percentage_24h}%
+                </p>
+              </div>
+              <div className="coin-list__div">
+                <p className="coin-list__cap-change">
+                  {" "}
+                  Market Cap Change: {market_cap_change_percentage_24h}%
+                </p>
+              </div>
+              <div className="coin-list__div">
+                <p className="coin-list__circulating-supply">
+                  Circulating Supply: {circulating_supply}
+                </p>
+              </div>
+              <div className="coin-list__div">
+                <p className="coin-list__total-supply">
+                  Total Supply: {total_supply}
+                </p>
+              </div>
             </div>
-            <div className="coin-list__div">
-              <p className="coin-list__diluted-valuation">
-                Full Diluted Valuation: ${fully_diluted_valuation}
-              </p>
+            <div className="coin-list__section">
+              <div className="coin-list__coinId">
+                <div className="coin-list__header">
+                  <p className="coin-list__name">{name}</p>
+                  <p className="coin-list__name">{symbol}</p>
+                </div>
+                <img src={image} alt="Bitcoin Icon" width={70} />
+              </div>
+              <Trading current_price={current_price} />
             </div>
-            <div className="coin-list__div">
-              <p className="coint-list__total-volume">
-                Total Volume: ${total_volume}
-              </p>
-            </div>
-            <div className="coin-list__div">
-              <p className="coin-list__high24">24Hrs High: ${high_24h}</p>
-            </div>
-            <div className="coin-list__div">
-              <p className="coin-list__low24">24Hrs Low: ${low_24h}</p>
-            </div>
-            <div className="coin-list__div">
-              <p className="coin-list__price-change">
-                Price Change in 24Hrs: ${price_change_24h}
-              </p>
-            </div>
-            <div className="coin-list__div">
-              <p className="coin-list__percentage-change">
-                {" "}
-                Price Change in 24Hrs:
-                {price_change_percentage_24h}%
-              </p>
-            </div>
-            <div className="coin-list__div">
-              <p className="coin-list__cap-change">
-                {" "}
-                Market Cap Change:
-                {market_cap_change_percentage_24h}%
-              </p>
-            </div>
-            <div className="coin-list__div">
-              <p className="coin-list__circulating-supply">
-                Circulating Supply: {circulating_supply}
-              </p>
-            </div>
-            <div className="coin-list__div">
-              <p className="coin-list__total-supply">
-                Total Supply: {total_supply}
-              </p>
-            </div>
-            <div className="coin-list__div">
-              <p className="coin-list__max-supply">Max Supply: {max_supply}</p>
-            </div>
-            <Trading current_price={current_price} />
           </div>
         </div>
       </>
