@@ -1,14 +1,16 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
+import CoinDetailsPage from "./pages/CoinDetailsPage/CoinDetailsPage";
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/coins/:coinId" element={<CoinDetailsPage />} />
       </Routes>
-    </Router>
+    </BrowserRouter>
   );
 }
 
