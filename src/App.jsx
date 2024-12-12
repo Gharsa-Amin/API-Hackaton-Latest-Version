@@ -1,15 +1,15 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import CoinList from "./pages/CoinListPages/CoinListPages";
+import HomePage from "./pages/HomePage/HomePage";
 
 function App() {
-	return (
-		<Router>
-			<Routes>
-				<Route path="/" element={<CoinList />} />
-			</Routes>
-		</Router>
-	);
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+      </Routes>
+    </Router>
+  );
 }
 
 export default App;
