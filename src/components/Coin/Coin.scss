@@ -1,0 +1,25 @@
+h2 {
+  font-size: 1.25rem;
+}
+
+.coin {
+  background-color: #d4d6d5;
+  padding: 1rem;
+  margin: 1rem;
+  width: 15rem;
+  height: 15rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+
+  &__symbol {
+    font-weight: 200;
+  }
+
+  &__item {
+    text-align: center;
+  }
+}
