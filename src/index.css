@@ -12,22 +12,23 @@ body {
   width: 5rem;
 }
 
-
-.header__logo-para{
+.header__logo-para {
   font-size: 2.5rem;
   margin: 0%;
 }
 
-.header{
+.header {
   display: flex;
   flex-direction: column;
   padding: 1.25rem;
+  background-color: #e6ddda;
 }
 
 .header__nav {
-  display: flex; 
+  display: flex;
   flex-direction: row;
-  justify-content: space-between; 
+  justify-content: space-between;
+  align-items: center;
   margin: 0;
 }
 
@@ -35,21 +36,19 @@ ul.header__list {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding-right: .75rem;
+  padding-right: 0.75rem;
   list-style: none;
   margin: 0;
-
 }
 
 .header__item {
-  padding-left: .75rem;
-  padding-right: .75rem;
-  
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
 }
-.header__item--Signup{
+.header__item--Signup {
   text-decoration: none;
   color: black;
-  margin-top: 3.125rem; 
+  margin-top: 3.125rem;
 }
 
 .header__item--login {
@@ -61,7 +60,6 @@ ul.header__list {
 .hero__image {
   width: 60%;
   height: 70vh;
-
 }
 
 .hero-section__content {
@@ -72,11 +70,12 @@ ul.header__list {
   padding-top: 100px;
   font-size: 30px;
   padding-left: 30px;
-  line-height: 60px; 
+  line-height: 60px;
   font-weight: 600;
 }
 
-.footer {  /* this is the footer section */
+.footer {
+  /* this is the footer section */
   display: flex;
   justify-content: space-between;
   align-items: flex-start; /* Aligns items to the start */
@@ -84,14 +83,14 @@ ul.header__list {
   position: relative; /* Allows absolute positioning of child elements */
   overflow: visible;
   margin: 0; /* Ensures logos can overflow */
-} 
+}
 
 .footer__container {
   display: flex;
   flex-direction: column; /* Stacks the articles vertically */
 }
 
-  .footer__paragraph {
-      font-size: 1.125rem;
-      font-weight: 400;
-  }
+.footer__paragraph {
+  font-size: 1.125rem;
+  font-weight: 400;
+}

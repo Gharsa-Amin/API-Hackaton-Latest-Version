@@ -5,6 +5,7 @@ import { Link, useParams } from "react-router-dom";
 import Coin from "../../components/Coin/Coin";
 import Header from "../../components/Header/Header";
 import Hero from "../../components/Hero/Hero";
+import "./HomePage.scss";
 
 export default function HomePage() {
   const [coins, setCoins] = useState([]);
@@ -32,9 +33,13 @@ export default function HomePage() {
       <section className="coin-list">
         <h1 className="coin-list__header">Cryptocurrency List</h1>
         {coins.length > 0 ? (
-          <ul>
+          <ul className="coin-list__list-item">
             {coins.map((coin) => (
-              <Link key={coin.id} to={`/coins/${coin.id}`}>
+              <Link
+                key={coin.id}
+                to={`/coins/${coin.id}`}
+                className="coin-list__link"
+              >
                 <Coin coin={coin} />
               </Link>
             ))}
