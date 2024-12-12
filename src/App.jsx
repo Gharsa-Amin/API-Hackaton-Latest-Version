@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import CoinList from "./pages/CoinListPages";
+import CoinList from "./pages/CoinListPages/CoinListPages";
 
 function App() {
 	return (
