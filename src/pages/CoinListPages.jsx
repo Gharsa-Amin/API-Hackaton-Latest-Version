@@ -23,18 +23,18 @@ export default function CoinList() {
 
 	return (
 		<section className="coin-list">
-			<h1>Cryptocurrency List</h1>
+			<h1 className="coin-list__header">Cryptocurrency List</h1>
 			{coins.length > 0 ? (
 				<ul>
 					{coins.map((coin) => (
 						<li key={coin.id}>
 							<div>
+								<img src={coin.image} alt={coin.name} width={50} height={50} />
 								<h2>{coin.name}</h2>
 								<p>{coin.symbol.toUpperCase()}</p>
 								<p>Price: ${coin.current_price}</p>
 								<p>Market Cap: ${coin.market_cap}</p>
 								<p>24h Change: {coin.price_change_percentage_24h}%</p>
-								<img src={coin.image} alt={coin.name} width={50} height={50} />
 							</div>
 						</li>
 					))}
