@@ -44,6 +44,7 @@ export default function CoinDetailsPage() {
 		return (
 			<>
 				<div>
+					<div className="coinlist"></div>
 					<p className="coin-list__price">Market Cap: {market_cap}</p>
 					<p className="coin-list__diluted-valuation">
 						Full Diluted Valuation: ${fully_diluted_valuation}
