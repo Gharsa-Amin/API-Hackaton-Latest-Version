@@ -1,35 +1,47 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import axios from "axios";
+import { useEffect, useState } from "react";
+import React from "react";
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function CoinList() {
+	const [coins, setCoins] = useState([]);
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+	useEffect(() => {
+		const fetchCoins = async () => {
+			const URL =
+				"https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd";
+			try {
+				const response = await axios.get(URL);
+				console.log(response.data);
+
+				setCoins(response.data);
+			} catch (error) {
+				console.error("Error fetching coins:", error);
+			}
+		};
+		fetchCoins();
+	}, []);
+
+	return (
+		<section className="coin-list">
+			<h1>Cryptocurrency List</h1>
+			{coins.length > 0 ? (
+				<ul>
+					{coins.map((coin) => (
+						<li key={coin.id}>
+							<div>
+								<h2>{coin.name}</h2>
+								<p>{coin.symbol.toUpperCase()}</p>
+								<p>Price: ${coin.current_price}</p>
+								<p>Market Cap: ${coin.market_cap}</p>
+								<p>24h Change: {coin.price_change_percentage_24h}%</p>
+								<img src={coin.image} alt={coin.name} width={50} height={50} />
+							</div>
+						</li>
+					))}
+				</ul>
+			) : (
+				<p>Loading coins...</p>
+			)}
+		</section>
+	);
 }
-
-export default App
